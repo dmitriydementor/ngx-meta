@@ -1,4 +1,4 @@
-// tslint:disable:max-file-line-count
+/* eslint-disable max-lines */
 import { fakeAsync, inject, TestBed } from '@angular/core/testing';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ describe('@ngx-meta/core:', () => {
 
       testModuleConfig({
         provide: MetaLoader,
-        useFactory: metaFactory
+        useFactory: metaFactory,
       });
     });
 
@@ -35,7 +35,7 @@ describe('@ngx-meta/core:', () => {
 
       testModuleConfig({
         provide: MetaLoader,
-        useFactory: metaFactory
+        useFactory: metaFactory,
       });
     });
 
@@ -75,7 +75,7 @@ describe('@ngx-meta/core:', () => {
             });
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set meta tags using routes w/o `meta` property', fakeAsync(
@@ -90,7 +90,7 @@ describe('@ngx-meta/core:', () => {
           expect(meta.getTag('name="description"').content).toEqual('Mighty Mouse is an animated superhero mouse character');
           expect(meta.getTag('property="og:url"').content).toEqual('http://localhost:3000/no-data');
         });
-      })
+      }),
     ));
 
     it('should be able to set meta tags using routes w/o default settings', fakeAsync(
@@ -100,7 +100,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -113,7 +113,7 @@ describe('@ngx-meta/core:', () => {
           expect(meta.getTag('name="description"').content).toEqual('Home, home sweet home... and what?');
           expect(meta.getTag('property="og:url"').content).toEqual('/');
         });
-      })
+      }),
     ));
 
     it('should be able to set meta tags using routes w/o default `title` w/o `meta` property', fakeAsync(
@@ -121,14 +121,14 @@ describe('@ngx-meta/core:', () => {
         const settings = cloneDeep(defaultSettings);
         settings.applicationName = 'Tour of (lazy/busy) heroes';
         settings.defaults = {
-          description: 'Mighty Mouse is an animated superhero mouse character'
+          description: 'Mighty Mouse is an animated superhero mouse character',
         };
 
         const metaFactory = () => new MetaStaticLoader(settings);
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -141,7 +141,7 @@ describe('@ngx-meta/core:', () => {
           expect(meta.getTag('name="description"').content).toEqual('Mighty Mouse is an animated superhero mouse character');
           expect(meta.getTag('property="og:url"').content).toEqual('/no-data');
         });
-      })
+      }),
     ));
 
     it('should be able to set meta tags using routes w/o default settings w/o `meta` property', fakeAsync(
@@ -151,7 +151,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -163,7 +163,7 @@ describe('@ngx-meta/core:', () => {
           expect(title.getTitle()).toEqual('');
           expect(meta.getTag('property="og:url"').content).toEqual('/no-data');
         });
-      })
+      }),
     ));
 
     it('should be able to set the `title`', fakeAsync(
@@ -187,7 +187,7 @@ describe('@ngx-meta/core:', () => {
             });
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set `title` (appended)', fakeAsync(
@@ -199,7 +199,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const metaService = TestBed.get(MetaService);
@@ -222,7 +222,7 @@ describe('@ngx-meta/core:', () => {
             });
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set `title` w/o default settings', fakeAsync(
@@ -232,7 +232,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const metaService = TestBed.get(MetaService);
@@ -245,7 +245,7 @@ describe('@ngx-meta/core:', () => {
           metaService.setTitle('');
           expect(title.getTitle()).toEqual('');
         });
-      })
+      }),
     ));
 
     it('should be able to set `title` w/o default settings (appended)', fakeAsync(
@@ -257,7 +257,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const metaService = TestBed.get(MetaService);
@@ -270,7 +270,7 @@ describe('@ngx-meta/core:', () => {
           metaService.setTitle('');
           expect(title.getTitle()).toEqual('');
         });
-      })
+      }),
     ));
 
     it('should be able to set `title` as blank if you provide an invalid `PageTitlePositioning`', inject([Title], (title: Title) => {
@@ -281,7 +281,7 @@ describe('@ngx-meta/core:', () => {
 
       testModuleConfig({
         provide: MetaLoader,
-        useFactory: metaFactory
+        useFactory: metaFactory,
       });
 
       const metaService = TestBed.get(MetaService);
@@ -294,7 +294,7 @@ describe('@ngx-meta/core:', () => {
       expect(() => {
         metaService.setTag('title', '');
       }).toThrowError(
-        'Attempt to set title through "setTag": "title" is a reserved tag name. ' + 'Please use `MetaService.setTitle` instead.'
+        'Attempt to set title through "setTag": "title" is a reserved tag name. ' + 'Please use `MetaService.setTitle` instead.',
       );
     }));
 
@@ -314,7 +314,7 @@ describe('@ngx-meta/core:', () => {
             expect(meta.getTag('name="description"').content).toEqual('Mighty Mouse is a cool character');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set meta `description` w/o default settings', fakeAsync(
@@ -324,7 +324,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const metaService = TestBed.get(MetaService);
@@ -337,7 +337,7 @@ describe('@ngx-meta/core:', () => {
           metaService.setTag('description', '');
           expect(meta.getTag('name="description"').content).toEqual('');
         });
-      })
+      }),
     ));
 
     it('should be able to set meta `author`', fakeAsync(
@@ -356,7 +356,7 @@ describe('@ngx-meta/core:', () => {
             expect(meta.getTag('name="author"').content).toEqual('Mickey Mouse');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set meta `publisher`', fakeAsync(
@@ -375,7 +375,7 @@ describe('@ngx-meta/core:', () => {
             expect(meta.getTag('name="publisher"').content).toEqual('another superhero');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set `og:locale`', fakeAsync(
@@ -406,7 +406,7 @@ describe('@ngx-meta/core:', () => {
             expect(elements[1].content).toEqual('nl_NL');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set `og:locale:alternate` w/ `og:locale:alternate`', fakeAsync(
@@ -429,7 +429,7 @@ describe('@ngx-meta/core:', () => {
             expect(meta.getTag('property="og:locale:alternate"').content).toEqual('tr_TR');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to set `og:locale` w/o default settings', fakeAsync(
@@ -439,7 +439,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -457,7 +457,7 @@ describe('@ngx-meta/core:', () => {
             expect(meta.getTag('property="og:locale"').content).toEqual('tr_TR');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to do not set `og:locale:alternate` as current `og:locale`', inject([Meta], (meta: Meta) => {
@@ -468,7 +468,7 @@ describe('@ngx-meta/core:', () => {
 
       testModuleConfig({
         provide: MetaLoader,
-        useFactory: metaFactory
+        useFactory: metaFactory,
       });
 
       const metaService = TestBed.get(MetaService);
@@ -488,7 +488,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -502,7 +502,7 @@ describe('@ngx-meta/core:', () => {
           expect(meta.getTag('property="og:url"').content).toEqual('/');
           expect(meta.getTag('property="og:locale:alternate"')).toBeNull();
         });
-      })
+      }),
     ));
 
     it('should be able to set any other meta tag', fakeAsync(
@@ -521,7 +521,7 @@ describe('@ngx-meta/core:', () => {
             expect(meta.getTag('property="og:type"').content).toEqual('blog');
           });
         });
-      })
+      }),
     ));
 
     it('should be able to remove tag', fakeAsync(
@@ -535,7 +535,7 @@ describe('@ngx-meta/core:', () => {
           metaService.removeTag('property="og:type"');
           expect(meta.getTag('property="og:type"')).toBeNull();
         });
-      })
+      }),
     ));
   });
 
@@ -550,7 +550,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const metaService = TestBed.get(MetaService);
@@ -563,7 +563,7 @@ describe('@ngx-meta/core:', () => {
           metaService.setTitle('test');
           expect(title.getTitle()).toEqual('test');
         });
-      })
+      }),
     ));
 
     it('should be able to set `title` w/`non-observable` callback w/o default settings', fakeAsync(
@@ -579,7 +579,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const metaService = TestBed.get(MetaService);
@@ -592,7 +592,7 @@ describe('@ngx-meta/core:', () => {
           metaService.setTitle('');
           expect(title.getTitle()).toEqual('test');
         });
-      })
+      }),
     ));
 
     it('should be able to set meta tags w/`promise` callback', fakeAsync(
@@ -605,7 +605,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -616,7 +616,7 @@ describe('@ngx-meta/core:', () => {
         router.navigate(['/']).then(() => {
           expect(title.getTitle()).toEqual('Sweet home - Tour of (lazy/busy) heroes');
         });
-      })
+      }),
     ));
 
     it('should be able to set meta tags w/`observable` callback', fakeAsync(
@@ -627,7 +627,7 @@ describe('@ngx-meta/core:', () => {
 
         testModuleConfig({
           provide: MetaLoader,
-          useFactory: metaFactory
+          useFactory: metaFactory,
         });
 
         const router = TestBed.get(Router);
@@ -638,7 +638,7 @@ describe('@ngx-meta/core:', () => {
         router.navigate(['/']).then(() => {
           expect(title.getTitle()).toEqual('Sweet home - Tour of (lazy/busy) heroes');
         });
-      })
+      }),
     ));
   });
 });

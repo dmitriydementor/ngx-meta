@@ -22,18 +22,16 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/@ngx-meta/core/tsconfig.lib.json",
-              "projects/@ngx-meta/core/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "packages/@ngx-meta/core/**/*.ts",
+              "packages/@ngx-meta/core/**/*.html"
             ]
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "@ngx-meta/core"
 }
