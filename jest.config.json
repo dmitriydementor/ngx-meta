@@ -1,0 +1,21 @@
+{
+  "preset": "jest-preset-angular",
+  "setupFilesAfterEnv": ["<rootDir>/tools/test/jest.setup.ts"],
+  "globalSetup": "jest-preset-angular/global-setup",
+  "testResultsProcessor": "./node_modules/jest-junit-reporter",
+  "testMatch": ["**/+(*.)+(spec|test).+(ts|js)?(x)"],
+  "globals": {
+    "ts-jest": {
+      "stringifyContentPathRegex": "\\.html?$",
+      "tsconfig": "<rootDir>/packages/@ngx-meta/core/tsconfig.spec.json"
+    }
+  },
+  "moduleNameMapper": {
+    "^@ngx-meta/core": "<rootDir>/packages/@ngx-meta/core/src/index.ts"
+  },
+  "cache": false,
+  "silent": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": ["<rootDir>/packages/@ngx-meta/core/src/**.ts"],
+  "modulePathIgnorePatterns": ["<rootDir>/dist"]
+}

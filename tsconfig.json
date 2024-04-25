@@ -11,14 +11,14 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-    "module": "esnext",
+    "module": "es2020",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@ngx-meta/core": ["packages/@ngx-meta/core/src/index.ts", "dist/@ngx-meta/core/ngx-meta-core", "dist/@ngx-meta/core"]
+      "@ngx-meta/core": ["dist/@ngx-meta/core/ngx-meta-core", "dist/@ngx-meta/core"]
     },
     "noImplicitAny": true
   },

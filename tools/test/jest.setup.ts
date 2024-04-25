@@ -1,5 +1,5 @@
-// tslint:disable
-import 'jest-preset-angular';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'jest-preset-angular/setup-jest';
 
 const mock = () => {
   let storage = {};
